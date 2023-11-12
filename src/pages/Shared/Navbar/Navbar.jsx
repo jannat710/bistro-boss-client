@@ -16,16 +16,19 @@ const Navbar = () => {
                         {navlink}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <div className="flex flex-col">
+                <p>BISTRO BOSS</p>
+                <p className="uppercase">Restaurant</p>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navlink}
                 </ul>
             </div>
-                {/* <div className="navbar-end">
+                <div className="navbar-end">
                     <a className="btn">Button</a>
-                </div> */}
+                </div>
         </div>
     );
 };
