@@ -1,6 +1,6 @@
-import fbimg from '../../../../public/images/fb.svg'
-import insta from '../../../../public/images/insta.svg'
-import twitter from '../../../../public/images/twitter.svg'
+import fbimg from '../../../../src/assets/contact/fb.svg'
+import insta from '../../../../src/assets/contact/insta.svg'
+import twitter from '../../../../src/assets/contact/twitter.svg'
 
 const Footer = () => {
     return (
