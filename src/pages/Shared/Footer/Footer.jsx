@@ -4,7 +4,7 @@ import twitter from '../../../../public/images/twitter.svg'
 
 const Footer = () => {
     return (
-        <div>
+        <div className='pt-10'>
             <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center">
                 <div className='bg-[#1F2937] w-full mx-auto text-white h-[40vh] md:w-1/2 lg:w-1/2  pt-10'>
                     <h1 className='text-3xl text-center md:pr-10 md:text-right lg:pr-20 lg:text-right font-bold'>CONTACT US</h1>
