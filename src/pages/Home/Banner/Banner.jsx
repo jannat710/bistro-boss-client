@@ -10,7 +10,7 @@ import slider6 from '../../../assets/home/06.png'
 
 const Banner = () => {
     return (
-        <Carousel className='text-center'>
+        <Carousel className='text-center' showStatus={false}>
             <div>
                 <img src={slider1} />
             </div>

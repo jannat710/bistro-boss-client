@@ -1,10 +1,17 @@
+import { Link } from "react-router-dom";
+import cart from '../../../assets/icon/cart.png'
 
 
 const Navbar = () => {
-    const navlink = <>
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
-    </>
+    const navlink = <div className="flex justify-center items-center">
+    <li><Link className="font-semibold text-base"  to="/">Home</Link> </li>
+    <li><Link className="font-semibold text-base" to="/contact">Contact us</Link> </li>
+    <li><Link className="font-semibold text-base" to="/dashboard">Dashboard</Link> </li>
+    <li><Link className="font-semibold text-base" to="/menu">Our Menu</Link> </li>
+    <li><Link className="font-semibold text-base" to="/ourshop">Our Shop</Link> </li>
+    <li><img className="h-14 w-20" src={cart} alt="" /> </li>
+        
+    </div>
     return (
         <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-xl mx-auto">
             <div className="navbar-start">
@@ -27,7 +34,7 @@ const Navbar = () => {
                 </ul>
             </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <button className="">Sign out</button>
                 </div>
         </div>
     );
