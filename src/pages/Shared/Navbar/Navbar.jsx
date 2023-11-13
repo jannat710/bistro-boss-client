@@ -3,7 +3,7 @@ import cart from '../../../assets/icon/cart.png'
 
 
 const Navbar = () => {
-    const navlink = <div className="flex justify-center items-center">
+    const navlink = <div className="flex flex-col  md:flex-row lg:flex-row justify-center items-center">
     <li><Link className="font-semibold text-base"  to="/">Home</Link> </li>
     <li><Link className="font-semibold text-base" to="/contact">Contact us</Link> </li>
     <li><Link className="font-semibold text-base" to="/dashboard">Dashboard</Link> </li>
