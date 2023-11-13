@@ -14,6 +14,7 @@ const MenuCategory = ({items,title,img}) => {
                     ></MenuItem>)
                 }
             </div>
+            <button className="btn flex justify-center items-center hover:bg-black hover:text-[#BB8506] mx-auto btn-outline border-0 border-b-4 mt-4">Order Our Favourite Food</button>
             
         </div>
     );
