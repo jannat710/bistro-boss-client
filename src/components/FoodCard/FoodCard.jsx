@@ -12,7 +12,7 @@ const FoodCard = ({item}) => {
             <div className="card-actions justify-end">
                 <button
                     
-                    className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4"
+                    className="btn btn-outline bg-slate-100 border-0 border-b-4 border-[#BB8506] mt-4 hover:text-[#BB8506]"
                 >Add to Cart</button>
             </div>
         </div>
