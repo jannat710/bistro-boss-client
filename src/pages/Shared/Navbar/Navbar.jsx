@@ -18,10 +18,12 @@ const Navbar = () => {
     <li><Link className="font-semibold text-base" to="/dashboard">Dashboard</Link> </li>
     <li><Link className="font-semibold text-base" to="/menu">Our Menu</Link> </li>
     <li><Link className="font-semibold text-base" to="/order/salad">Order Food</Link> </li>
+    <li><Link className="font-semibold text-base" to="/secret">Secret</Link> </li>
     <li><img className="h-14 w-20" src={cart} alt="" /> </li>
 
     {
             user ? <>
+            <span>{user?.displayName}</span>
                 <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
             </> : <>
             <li><Link className="font-semibold text-base" to="/login">Login</Link> </li>
