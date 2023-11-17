@@ -1,16 +1,32 @@
 import { Link } from "react-router-dom";
 import cart from '../../../assets/icon/cart.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
+
     const navlink = <div className="flex flex-col  md:flex-row lg:flex-row justify-center items-center">
     <li><Link className="font-semibold text-base"  to="/">Home</Link> </li>
     <li><Link className="font-semibold text-base" to="/contact">Contact us</Link> </li>
     <li><Link className="font-semibold text-base" to="/dashboard">Dashboard</Link> </li>
     <li><Link className="font-semibold text-base" to="/menu">Our Menu</Link> </li>
     <li><Link className="font-semibold text-base" to="/order/salad">Order Food</Link> </li>
-    <li><Link className="font-semibold text-base" to="/login">Login</Link> </li>
     <li><img className="h-14 w-20" src={cart} alt="" /> </li>
+
+    {
+            user ? <>
+                <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+            </> : <>
+            <li><Link className="font-semibold text-base" to="/login">Login</Link> </li>
+            </>
+        }
 
         
     </div>
