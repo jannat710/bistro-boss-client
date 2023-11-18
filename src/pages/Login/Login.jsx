@@ -9,9 +9,10 @@ const Login = () => {
    
     const [disabled, setDisabled] = useState(true);
     const { signIn } = useContext(AuthContext);
-    //Redirect
+    //redirect
     const navigate = useNavigate();
     const location = useLocation();
+
     const from = location.state?.from?.pathname || "/";
     console.log('state in the location login page', location.state)
     //Captcha
@@ -26,22 +27,20 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
         signIn(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            Swal.fire({
-                title: 'User Login Successful.',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
-            });
-            //redirect
-            navigate(from, { replace: true });
-        })
-
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire({
+                    title: 'User Login Successful.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+                navigate(from, { replace: true });
+            })
     }
     const handleValidateCaptcha = (e) => {
         const user_captcha_value = e.target.value;
@@ -88,7 +87,8 @@ const Login = () => {
                             
                         </div>
                         <div className="form-control mt-6">
-                            <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
+                            {/* TODO:apply disable for recaptcha */}
+                            <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
                         </div>
                     </form>
                     <p><small>New Here? <Link to="/signup">Create an account</Link> </small></p>
