@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const Cart = () => {
     const axiosSecure = useAxiosSecure();
     const [cart,refetch] = useCart();
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    const totalPrice = cart.reduce((total, item) => total + item.price, 0).toFixed(2);
 
     const handleDelete = id => {
         Swal.fire({
@@ -42,7 +42,7 @@ const Cart = () => {
             </SectionTitle>
             <div className="flex justify-evenly mb-8">
                 <h2 className="text-3xl font-semibold">TOTAL ORDERS: {cart.length}</h2>
-                <h2 className="text-3xl font-semibold">TOTAL PRICE: {totalPrice}</h2>
+                <h2 className="text-3xl font-semibold">TOTAL PRICE: ${totalPrice}</h2>
                 <button className="btn text-white bg-[#D1A054]">Pay</button>
             </div>
             <div className="overflow-x-auto">
