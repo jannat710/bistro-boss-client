@@ -3,14 +3,42 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useMenu from "../../../hooks/useMenu";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const ManageItems = () => {
-    const [menu, , refetch] = useMenu();
+    const [menu, refetch] = useMenu();
     const axiosSecure = useAxiosSecure();
 
     const handleDeleteItem = (item) =>{
 
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosSecure.delete(`/menu/${item._id}`);
+                console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    // refetch to update the ui
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${item.name} has been deleted`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+
+
+            }
+        });
     }
     return (
         <div>
@@ -19,7 +47,7 @@ const ManageItems = () => {
                 <div className="overflow-x-auto">
                     <table className="table w-full">
                         {/* head */}
-                        <thead>
+                        <thead className="bg-[#D1A054] text-white">
                             <tr>
                                 <th>
                                     #
@@ -49,11 +77,11 @@ const ManageItems = () => {
                                     <td>
                                         {item.name}
                                     </td>
-                                    <td className="text-right">${item.price}</td>
+                                    <td className="">${item.price}</td>
                                     <td>
                                         <Link to={`/dashboard/updateItem/${item._id}`}>
                                             <button
-                                                className="btn btn-ghost btn-lg bg-orange-500">
+                                                className="btn btn-ghost btn-sm bg-[#D1A054]">
                                                 <FaEdit className="text-white 
                                         "></FaEdit>
                                             </button>
@@ -62,8 +90,8 @@ const ManageItems = () => {
                                     <td>
                                         <button
                                             onClick={() => handleDeleteItem(item)}
-                                            className="btn btn-ghost btn-lg">
-                                            <FaTrashAlt className="text-red-600"></FaTrashAlt>
+                                            className="btn btn-ghost btn-sm bg-[#B91C1C]">
+                                            <FaTrashAlt className="text-white"></FaTrashAlt>
                                         </button>
                                     </td>
                                 </tr>)
