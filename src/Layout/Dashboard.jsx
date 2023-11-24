@@ -77,11 +77,11 @@ const Dashboard = () => {
                         Add a Review</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/dashboard/bookings" className={({ isActive, isPending }) =>
+                    <NavLink to="/dashboard/paymentHistory" className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "text-white font-medium " : "font-medium"
                         }>
                         <FaList></FaList>
-                        My Bookings</NavLink>
+                        Payment History</NavLink>
                 </li></>
                   }
                     {/* shared nav link */}
