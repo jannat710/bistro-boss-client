@@ -1,7 +1,8 @@
 import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from '../hooks/useAdmin';
 import useCart from "../hooks/useCart";
-import useAdmin from "../hooks/useAdmin";
+
 
 
 const Dashboard = () => {
